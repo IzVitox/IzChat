@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        html{
+            min-height: 100%;
+        } 
+        body{
+            background-color: #212121;
+            color: white;
+            padding: 0px;
+            height: 75vh;
+            padding: 0;
+            margin: 0;
+        }
+
+        input[type=text], input[type=password]{
+            background-color: #212121;
+            color: white;
+            border: none;
+            border-bottom: 1px solid grey;
+            outline: none;
+            margin-top: 20px;
+            padding: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: medium;
+            box-sizing: border-box;
+        }
+
+        input[type=text]:focus, input[type=password]:focus{
+            border-bottom: 2.5px solid grey;
+        }
+
+        input[type=text]:hover, input[type=password]:hover{
+            border-bottom: 2.5px solid grey;
+        }
+
+        input[type=submit]{
+            background-color: #2d90a8;
+            color: rgb(230, 230, 230);
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 30px;
+            padding-right: 30px;
+            font-size: larger;
+            font-family: Arial, Helvetica, sans-serif;
+            border-radius: 10px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            -webkit-transition: 0.5s;
+            transition: 0.5s;
+            border: none;
+
+        }
+
+        input[type=submit]:hover{
+            background-color: #245e8a;
+            -webkit-transition: 0.5s;
+            transition: 0.5s;
+        }
+
+        .text-link{
+        
+            color: grey;
+            font-style: normal;
+            text-decoration: none;
+            padding: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            font-size: medium;
+        }
+
+        .back{
+            font-family: consolas;
+            color: grey;
+            font-size: 55px;
+            margin-left: 1vh;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .login-form{
+            width: fit-content;
+            height: fit-content;
+            margin: auto;
+            margin-top: 25vh;
+        }
+
+    </style>
+</head>
+<body>
+
+    <a href="/" class="back"><</a>
+    
+    <form action="/u/login" method="post" class="login-form">
+        <input type="text" name="username" placeholder="Username" id="username"><br>
+
+        <input type="password" name="password" placeholder="Password" id="pwd"><br>
+
+        <input type="submit" value="Login"><br>
+
+        <a href="/u/register" class="text-link">No account: Register</a><br><br>
+        <a href="#" class="text-link">Lost password: Reset</a>
+    </form>
+
+</body>
+</html>

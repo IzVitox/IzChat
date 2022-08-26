@@ -1,9 +1,29 @@
 const authServ = require('../services/authentication-service.js');
 
-function registerUser(req, res, next) {
-    res.send('<h1>Register</h1>')
+function register(req, res, next) {
+    res.render('register')
+}
+
+function login(req, res, next){
+    res.render("login")
+}
+
+function user(req, res, next) {
+    res.render('user')
+}
+
+function logout(req, res, next) {
+    
+}
+
+function lostPwd(req, res, next) {
+    
 }
 
 module.exports = {
-    registerUser,
+    register,
+    login,
+    user, 
+    logout,
+    lostPwd
 }
