@@ -5,7 +5,7 @@ app = express();
 
 app.use('/u/', authRouter);
 
-app.use(express.static('/src/css/'))
+app.use(express.static('./src/css/'))
 
 app.set('view engine', 'ejs');
 app.set('views', './src/views/')

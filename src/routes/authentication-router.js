@@ -8,4 +8,8 @@ router.get('/login/', authController.login);
 
 router.get('/user/', authController.user);
 
+router.get('/lostPwd', authController.lostPwd);
+
+router.get('/logout', authController.logout);
+
 module.exports = router;

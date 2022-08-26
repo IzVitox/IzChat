@@ -13,12 +13,14 @@ function user(req, res, next) {
 }
 
 function logout(req, res, next) {
-    
+    res.send('logging out')
 }
 
 function lostPwd(req, res, next) {
-    
+    res.send('Forgot Password')
 }
+
+// TODO: POST Methods for login and registration
 
 module.exports = {
     register,

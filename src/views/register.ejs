@@ -4,9 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
     <title>Register</title>
 </head>
-<body>
-    <h1>Test</h1>
+<body class="dark-body">
+
+    <a href="/" class="back"><</a>
+
+    <form action="/u/register" method="post" class="login-form">
+
+        <input type="email" placeholder="E-Mail" name="email" id="email" class="auth-input">
+
+        <input type="text" placeholder="Username" name="username" id="username" class="auth-input">
+
+        <input type="text" placeholder="Password" name="password" id="password" class="auth-input">
+
+        <input type="submit" value="Register" class="auth-submit"><br>
+
+        <a href="/u/login" class="text-link">Got an account: LogIn</a><br><br>
+
+    </form>
+
 </body>
 </html>
