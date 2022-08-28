@@ -10,6 +10,9 @@ app.use(express.static('./src/css/'))
 app.set('view engine', 'ejs');
 app.set('views', './src/views/')
 
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
+
 app.get('/', (req, res, nex) => {
     res.render('index');
 });

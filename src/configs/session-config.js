@@ -3,3 +3,5 @@ const sessionConf = {
     resave: true,
     saveUninitialized: true
 };
+
+module.exports = sessionConf

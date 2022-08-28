@@ -2,17 +2,28 @@ const db = require('./db-service');
 
 function registration(username, password, email) {
     
-    var sql = "INSERT INTO 'user' (username, password, email) VALUES (?, ?, ?)";
+    if(existingUsername(username) == false){
+        var sql = "INSERT INTO `user` (`username`, `password`, `email`) VALUES (?)";
 
-    db.queryDatabase(sql, [username, password, email]);
+        //TODO Hash password, check 2 password input
+
+        var values = [[username], [password], [email]]
+
+        db.con.query(sql, [values], (error, results, fields) => {
+            console.log(error);
+        });
+        return true;
+    }else{
+        return false;
+    }
 
 }
 
 function existingUsername(username) {
-    
-    var sql = "SELECT * FROM 'user' WHERE username = ?"
+    const sql = "SELECT * FROM `user` WHERE username = ?"
 
-    db.queryDatabase(sql, username, (results, fields) => {
+    db.con.query(sql, [username], (error, results, fields) => {
+        if(error) throw error;
         if (results.length > 0) {
             return true;
         }else{
@@ -20,4 +31,25 @@ function existingUsername(username) {
         }
     });
 
+}
+
+
+function loginUser(username, password) {
+    const sql = "SELECT * FROM `user` WHERE username = ? AND password = ?";
+
+    db.con.query(sql, [username, password], (error, results, fields) =>{
+        if(error) throw error;
+        if (results.length > 0) {
+            return true;
+        }else{
+            return false;
+        }
+    });
+
+}
+
+module.exports = {
+    registration,
+    existingUsername,
+    loginUser
 }
