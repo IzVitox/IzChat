@@ -10,7 +10,7 @@ function registration(username, password, email) {
         var values = [[username], [password], [email]]
 
         db.con.query(sql, [values], (error, results, fields) => {
-            console.log(error);
+            if(error) throw error;
         });
         return true;
     }else{
@@ -33,23 +33,29 @@ function existingUsername(username) {
 
 }
 
+function testReturn(test) {
+    return test;
+}
 
-function loginUser(username, password) {
+function loginUser(username, password, req, res) {
     const sql = "SELECT * FROM `user` WHERE username = ? AND password = ?";
 
-    db.con.query(sql, [username, password], (error, results, fields) =>{
+    db.con.query(sql, [username, password], (error, results, fields) => {
         if(error) throw error;
-        if (results.length > 0) {
-            return true;
+        if(results.length > 0){
+            req.session.loggedIn = true;
+            req.session.username = username;
+            res.redirect('/u/user');
         }else{
-            return false;
+            //TODO handle false credentials
+            res.redirect('/u/login');
         }
     });
-
 }
 
 module.exports = {
     registration,
     existingUsername,
-    loginUser
+    loginUser, 
+    testReturn
 }

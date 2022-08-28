@@ -26,19 +26,8 @@ function lostPwd(req, res, next) {
 function loginPost(req, res, next) {
     let {username, password} = req.body;
 
-    if(authServ.loginUser(username, password)){
-        req.session.loggedIn = true;
-        req.session.username = username;
-        res.redirect('/u/user')
-    }else{
-        console.log('login failed');
-        res.redirect('/u/login')
-        // TODO login failed
-    }
+    authServ.loginUser(username, password, req, res);
     
-    
-    
-
 }
 
 function registerPost(req, res, next) {
