@@ -33,10 +33,6 @@ function existingUsername(username) {
 
 }
 
-function testReturn(test) {
-    return test;
-}
-
 function loginUser(username, password, req, res) {
     const sql = "SELECT * FROM `user` WHERE username = ? AND password = ?";
 
@@ -45,10 +41,10 @@ function loginUser(username, password, req, res) {
         if(results.length > 0){
             req.session.loggedIn = true;
             req.session.username = username;
-            res.redirect('/u/user');
+            res.redirect('/u/user/');
         }else{
             //TODO handle false credentials
-            res.redirect('/u/login');
+            res.redirect('/a/login/')
         }
     });
 }
@@ -57,5 +53,4 @@ module.exports = {
     registration,
     existingUsername,
     loginUser, 
-    testReturn
 }

@@ -9,14 +9,9 @@ function login(req, res, next){
     res.render("login")
 }
 
-function user(req, res, next) {
-    res.render('user', {
-        username: req.session.username
-    });
-}
-
 function logout(req, res, next) {
     req.session.loggedIn = false;
+    res.redirect('/a/login')
 }
 
 function lostPwd(req, res, next) {
@@ -46,7 +41,6 @@ function registerPost(req, res, next) {
 module.exports = {
     register,
     login,
-    user, 
     logout,
     lostPwd,
     loginPost,
