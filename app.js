@@ -6,6 +6,13 @@ const sessionConf = require('./src/configs/session-config')
 
 app = express();
 
+
+app.use(session({
+    secret: sessionConf.secret,
+    resave: sessionConf.resave,
+    saveUninitialized: sessionConf.saveUninitialized
+}))
+
 app.use('/u/', userRouter);
 app.use('/a/', authRouter);
 
@@ -18,6 +25,8 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
 app.get('/', (req, res, nex) => {
+    req.session.username = '';
+    req.session.loggedIn = false;
     res.render('index');
 });
 
