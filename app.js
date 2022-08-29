@@ -2,7 +2,7 @@ const express = require('express');
 const session = require('express-session');
 const authRouter = require('./src/routes/authentication-router.js');
 const userRouter = require('./src/routes/user-route.js');
-const sessionConf = require('./src/configs/session-config')
+const sessionConf = require('./src/configs/session-config');
 
 app = express();
 

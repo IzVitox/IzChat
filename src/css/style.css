@@ -99,3 +99,15 @@ html{
     font-family: Arial, Helvetica, sans-serif;
     font-size: smaller;
 }
+
+.button-blue{
+    background-color: blue;
+    text-decoration: none;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin: 10px;
+    margin-top: 100px;
+    position: absolute;
+    color: lightgrey;
+}

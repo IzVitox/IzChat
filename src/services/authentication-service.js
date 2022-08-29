@@ -1,7 +1,5 @@
 const db = require('./db-service');
 
-
-
 function registration(username, password, email) {
     
     if(existingUsername(username) == false){
