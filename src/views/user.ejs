@@ -11,6 +11,12 @@
     
     <div>
         <!-- TODO User Page incl. Image, settings -->
+
+        <form action="/u/profileImage" method="post" enctype="multipart/form-data">
+            <input type="file" name="image" id="image">
+            <input type="submit" value="Upload">
+        </form>
+
     </div>
 
     <a href="/a/logout/" class="button-blue">Logout</a>

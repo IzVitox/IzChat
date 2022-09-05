@@ -18,15 +18,9 @@ function user(req, res, next) {
     }
 }
 
-const handleError = (err, res) => {
-    res
-      .status(500)
-      .contentType("text/plain")
-      .end("Oops! Something went wrong!");
-  };
-
 function profileImage(req, res, next) {
-    
+    console.log(req.file);
+    res.send('uploaded');
 }
 
 function getInfo(req, res, next) {
@@ -44,8 +38,16 @@ function getInfo(req, res, next) {
     })    
 }
 
+function displayImage(req, res, next) {
+    const { filename } = req.params;
+    const dirname = path.resolve();
+    const fullfilepath = path.join(dirname, 'uploads/' + filename);
+    return res.sendFile(fullfilepath);
+}
+
 module.exports = {
     user,
     profileImage,
-    getInfo
+    getInfo, 
+    displayImage
 };
