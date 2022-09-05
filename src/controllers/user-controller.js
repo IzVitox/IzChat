@@ -1,11 +1,10 @@
 const { fstat } = require('fs');
 const path = require('path');
 const userService = require('../services/user-service');
-const multer = require('multer');
 
 const dbService = require('../services/db-service');
 
-const upload = multer({dest: 'uploads/'});
+const uploadService = require('../services/upload-service');
 
 function user(req, res, next) {
 
@@ -18,15 +17,22 @@ function user(req, res, next) {
     }
 }
 
-const handleError = (err, res) => {
-    res
-      .status(500)
-      .contentType("text/plain")
-      .end("Oops! Something went wrong!");
-  };
-
-function profileImage(req, res, next) {
+function uploadImage(req, res, next) {
+    // console.log(req.file);
     
+    if(req.file.size < 1500000){
+        uploadService.saveImage(req, res)
+    }
+    
+    res.send('uploaded');
+}
+
+function getImageData(req, res, next) {
+    uploadService.getImage(1, function (results) {
+        console.log(results);
+    });
+    
+    res.send('Getting Image Data')
 }
 
 function getInfo(req, res, next) {
@@ -41,11 +47,20 @@ function getInfo(req, res, next) {
         }else{
             console.log('No user found')
         }
-    })    
+    })
+}
+
+function displayImage(req, res, next) {
+    const { filename } = req.params;
+    const dirname = path.resolve();
+    const fullfilepath = path.join(dirname, 'uploads/' + filename);
+    return res.sendFile(fullfilepath);
 }
 
 module.exports = {
     user,
-    profileImage,
-    getInfo
+    uploadImage,
+    getInfo, 
+    displayImage,
+    getImageData
 };
