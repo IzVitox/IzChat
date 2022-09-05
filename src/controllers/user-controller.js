@@ -1,7 +1,9 @@
 const { fstat } = require('fs');
 const path = require('path');
-const userService = require('../services/user-service')
+const userService = require('../services/user-service');
 const multer = require('multer');
+
+const dbService = require('../services/db-service');
 
 const upload = multer({dest: 'uploads/'});
 
@@ -24,21 +26,26 @@ const handleError = (err, res) => {
   };
 
 function profileImage(req, res, next) {
-    if (!req.file) {
-        console.log("No file received");
-        return res.send({
-          success: false
-        });
     
-      } else {
-        console.log('file received');
-        return res.send({
-          success: true
-        })
-      }
+}
+
+function getInfo(req, res, next) {
+    var sql = "SELECT * FROM `user` WHERE username = ?";
+
+    username='izvitox';
+
+    dbService.con.query(sql, username, (err, results, fields) => {
+        if(err) throw err;
+        if(results.length > 0) {
+            res.send(results[0].email)
+        }else{
+            console.log('No user found')
+        }
+    })    
 }
 
 module.exports = {
     user,
-    profileImage
+    profileImage,
+    getInfo
 };

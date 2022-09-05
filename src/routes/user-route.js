@@ -10,5 +10,6 @@ UserRouter.use(express.urlencoded({extended:true}));
 
 UserRouter.get('/user/', userController.user);
 UserRouter.post('/profileImage/', userController.profileImage)
+UserRouter.get('/getInfo/', userController.getInfo)
 
 module.exports = UserRouter;
