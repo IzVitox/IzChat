@@ -1,11 +1,10 @@
 const { fstat } = require('fs');
 const path = require('path');
 const userService = require('../services/user-service');
-const multer = require('multer');
 
 const dbService = require('../services/db-service');
 
-const upload = multer({dest: 'uploads/'});
+const uploadService = require('../services/upload-service');
 
 function user(req, res, next) {
 
@@ -18,9 +17,22 @@ function user(req, res, next) {
     }
 }
 
-function profileImage(req, res, next) {
-    console.log(req.file);
+function uploadImage(req, res, next) {
+    // console.log(req.file);
+    
+    if(req.file.size < 1500000){
+        uploadService.saveImage(req, res)
+    }
+    
     res.send('uploaded');
+}
+
+function getImageData(req, res, next) {
+    uploadService.getImage(1, function (results) {
+        console.log(results);
+    });
+    
+    res.send('Getting Image Data')
 }
 
 function getInfo(req, res, next) {
@@ -35,7 +47,7 @@ function getInfo(req, res, next) {
         }else{
             console.log('No user found')
         }
-    })    
+    })
 }
 
 function displayImage(req, res, next) {
@@ -47,7 +59,8 @@ function displayImage(req, res, next) {
 
 module.exports = {
     user,
-    profileImage,
+    uploadImage,
     getInfo, 
-    displayImage
+    displayImage,
+    getImageData
 };
