@@ -7,18 +7,32 @@
     <link rel="stylesheet" href="../../style.css">
     <title>User</title>
 </head>
-<body>
+<body class="user-body">
     
     <div>
+
+        <a href="/u/" class="back"><</a>
+
+
         <!-- TODO User Page incl. Image, settings -->
 
-        <form action="/u/profileImage" method="post" enctype="multipart/form-data">
+        <!-- <form action="/u/profileImage" method="post" enctype="multipart/form-data">
             <input type="file" name="image" id="image">
             <input type="submit" value="Upload">
-        </form>
+        </form> -->
+
+        <div class="user-card">
+            <img src="../../<%=profileImage%>" class="user-image" alt="Profile Image" width="125px" height="125px">
+            <h3 class="user-card-headline">Username:</h3>
+            <p class="user-data"><%=username%></p>
+
+            <h3 class="user-card-headline">E-Mail:</h3>
+            <p class="user-data"><%=email %></p>
+        </div>
+
 
     </div>
 
-    <a href="/a/logout/" class="button-blue">Logout</a>
+    <!-- <a href="/a/logout/" class="button-blue">Logout</a> -->
 </body>
 </html>

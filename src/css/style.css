@@ -111,3 +111,31 @@ html{
     position: absolute;
     color: lightgrey;
 }
+
+.user-card{
+    background-color: #212121;
+    color: white;
+    padding: 6vh;
+    width: fit-content;
+    border-radius: 2vh;
+    text-align: center;
+    margin: auto;
+    margin-top: 15vh;
+}
+
+.user-card-headline{
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: underline;
+}
+
+.user-data{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.user-image{
+    border-radius: 100%;
+}
+
+.user-body{
+    background-color: #3f3f3f;
+}
