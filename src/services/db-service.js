@@ -41,13 +41,30 @@ function getImage(id, callback) {
         }else{
             console.log("Image not found")
         }
-
     });
+}
+
+function getChats(username, callback) {
+    
+    var sql = "SELECT * FROM chat LEFT JOIN chatMember ON chat.id = chatMember.chatID WHERE chatMember.userID = ?";
+
+    getUser(username, (res) => {
+        con.query(sql, res[0].id, (err, results, fields) => {
+            if(err) throw err
+            // console.log("getting Chats")
+            // console.log(results);
+            return callback(results)
+        })
+    })
+
+
+    return
 
 }
 
 module.exports = {
     con,
     getUser,
-    getImage
+    getImage,
+    getChats
 };

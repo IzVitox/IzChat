@@ -139,3 +139,70 @@ html{
 .user-body{
     background-color: #3f3f3f;
 }
+
+main{
+    align-items: center;
+    align-content: center;
+    width: 100%;
+    background-color: #212121;
+}
+
+.chat-ul{
+    list-style: none;
+    background-color: #212121;
+    width: 100%;
+    padding: 6vh;
+}
+
+.chat-li{
+    border: lightgray 3px solid;
+    border-radius: 10px;
+    margin-top: 4vh;
+    width: 90%;
+    padding: 2vh;
+    margin-left: 5%;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.chat-li:hover{
+    padding: 2.5vh;
+    margin-left: 3%;
+    width: 94%;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.chat-a{
+    text-decoration: none;
+    color: white;
+    margin: 2vh;
+}
+
+.chat-a:hover{
+    color: white;
+}
+
+.chats-headline{
+    color: white;
+    text-decoration: underline;
+    font-family: 'Courier New', Courier, monospace;
+    text-underline-offset: 0.75vh;
+}
+
+.chats-open-arrow{
+    float: right;
+    text-decoration: none;
+    color: white;
+}
+
+.chats-open-arrow:hover{
+    color: lightgray;
+}
+
+.body-chats{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #212121;
+}

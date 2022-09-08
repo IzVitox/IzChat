@@ -9,31 +9,46 @@
     <link rel="stylesheet" href="../style.css">
     <title>IzChat</title>
 </head>
-<body>
+<body class="body-chats">
 
     <nav class="navbar navbar-dark navbar-expand-lg bg-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="/">IzChat</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
-            <form class="d-flex" role="search">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/u/user">Profile</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="/c/createChat">+</a>
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">IzChat</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+          <form class="d-flex" role="search">
+              <ul class="navbar-nav">
+                  <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="/u/user">Profile</a>
                   </li>
-                </ul>
-                <input class="search-input" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-          </div>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/c/createChat">+</a>
+                </li>
+              </ul>
+              <input class="search-input" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
         </div>
-      </nav>
+      </div>
+    </nav>
+
+    <main>
+
+      
+      <ul class="chat-ul">
+        <h1 class="chats-headline">Chats: </h1>
+        <%for(var i=0; i < chats.length; i++) {%>
+          <li class="chat-li">
+              <a href="#" class="chat-a"><%=chats[i].name %></a><a href="#" class="chats-open-arrow">></a>
+          </li>
+        <% } %>    
+      </ul>
+      <!-- <p><%= chats[0].name%></p> -->
+
+    </main>
     
 </body>
 </html>

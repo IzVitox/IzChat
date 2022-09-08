@@ -1,10 +1,15 @@
 const userService = require('../services/user-service')
 const chatService = require('../services/chat-service')
+const dbService = require("../services/db-service")
 
 function index(req, res, next) {
 
     if(userService.checkLoggedIn(req)){
-        res.render("chatIndex")
+        dbService.getChats(req.session.username, (results) => {
+            res.render("chatIndex", {
+                chats: results
+            });
+        });
     }else{
         res.render('login')
     }

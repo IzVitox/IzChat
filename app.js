@@ -6,6 +6,7 @@ const userRouter = require('./src/routes/user-route.js');
 const chatRouter = require('./src/routes/chat-router.js')
 
 const sessionConf = require('./src/configs/session-config');
+const serveFavicon = require('serve-favicon');
 
 
 
@@ -24,6 +25,9 @@ app.use('/c/', chatRouter);
 
 app.use(express.static('./src/css/'))
 app.use(express.static('./uploads/'))
+app.use(express.static('./icons/'))
+
+app.use(serveFavicon("./src/icons/favicon-96x96.ico"))
 
 app.set('view engine', 'ejs');
 app.set('views', './src/views/')
