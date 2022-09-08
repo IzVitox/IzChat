@@ -9,12 +9,38 @@ const uploadService = require('../services/upload-service');
 function user(req, res, next) {
 
     if(userService.checkLoggedIn(req)){
-        res.render('user', {
-            username : req.session.username
+        
+        dbService.getUser(req.session.username, (results) => {
+            mail = results[0].email;
+
+            dbService.getImage(results[0].imageID, (results) => {
+                res.render('user', {
+                    username : req.session.username,
+                    email: mail,
+                    profileImage: results[0].filename,
+                    imageHeight: "",
+                    imagewidth: "",
+                    
+                });
+            });
+
+
+            // console.log(mail)
         });
+        
     }else{
         res.redirect('/a/login')
     }
+}
+
+function index(req, res, next) {
+
+    if(userService.checkLoggedIn(req)){
+        res.render("chatIndex")
+    }else{
+        res.render('login')
+    }
+
 }
 
 function uploadImage(req, res, next) {
@@ -62,5 +88,6 @@ module.exports = {
     uploadImage,
     getInfo, 
     displayImage,
-    getImageData
+    getImageData,
+    index
 };

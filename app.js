@@ -17,6 +17,7 @@ app.use('/u/', userRouter);
 app.use('/a/', authRouter);
 
 app.use(express.static('./src/css/'))
+app.use(express.static('./uploads/'))
 
 app.set('view engine', 'ejs');
 app.set('views', './src/views/')
