@@ -7,4 +7,3 @@ TODO add message creation
 TODO display messages
 TODO chat settings
 TODO adding user to chat
-
