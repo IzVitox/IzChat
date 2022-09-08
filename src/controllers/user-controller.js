@@ -33,16 +33,6 @@ function user(req, res, next) {
     }
 }
 
-function index(req, res, next) {
-
-    if(userService.checkLoggedIn(req)){
-        res.render("chatIndex")
-    }else{
-        res.render('login')
-    }
-
-}
-
 function uploadImage(req, res, next) {
     // console.log(req.file);
     
@@ -89,5 +79,4 @@ module.exports = {
     getInfo, 
     displayImage,
     getImageData,
-    index
 };

@@ -15,6 +15,5 @@ UserRouter.post('/profileImage/', multerService.imageUpload.single('image'), use
 UserRouter.get('/getInfo/', userController.getInfo);
 UserRouter.get('/image/:filename', userController.displayImage);
 UserRouter.get('/getImageData/', userController.getImageData)
-UserRouter.get("/", userController.index)
 
 module.exports = UserRouter;

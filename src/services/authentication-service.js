@@ -41,7 +41,7 @@ function loginUser(username, password, req, res) {
         if(results.length > 0){
             req.session.loggedIn = true;
             req.session.username = username;
-            res.redirect('/u/');
+            res.redirect('/c/');
         }else{
             //TODO handle false credentials
             res.redirect('/a/login/')

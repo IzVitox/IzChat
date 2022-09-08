@@ -1,8 +1,13 @@
 const express = require('express');
 const session = require('express-session');
+
 const authRouter = require('./src/routes/authentication-router.js');
 const userRouter = require('./src/routes/user-route.js');
+const chatRouter = require('./src/routes/chat-router.js')
+
 const sessionConf = require('./src/configs/session-config');
+
+
 
 app = express();
 
@@ -15,6 +20,7 @@ app.use(session({
 
 app.use('/u/', userRouter);
 app.use('/a/', authRouter);
+app.use('/c/', chatRouter);
 
 app.use(express.static('./src/css/'))
 app.use(express.static('./uploads/'))
