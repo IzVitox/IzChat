@@ -34,7 +34,13 @@ function user(req, res, next) {
 }
 
 function index(req, res, next) {
-    res.render("userIndex")
+
+    if(userService.checkLoggedIn(req)){
+        res.render("chatIndex")
+    }else{
+        res.render('login')
+    }
+
 }
 
 function uploadImage(req, res, next) {

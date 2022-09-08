@@ -15,9 +15,6 @@ function getUser(username, callback) {
     var sql = "SELECT * FROM `user` WHERE username = ?";
 
     // console.log(username)
-
-    var results
-
     con.query(sql, [username], (err, results, fields) => {
         if(err) throw err;
         if(results.length > 0) {
