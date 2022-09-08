@@ -1,9 +1,9 @@
 # IzChat
 Slack-Like Website
 
-DONE List chats on chatIndex page 
-TODO Create chat page
-TODO add message creation
-TODO display messages
-TODO chat settings
-TODO adding user to chat
+DONE List chats on chatIndex page <br>
+TODO Create chat page <br>
+TODO add message creation <br>
+TODO display messages <br>
+TODO chat settings <br>
+TODO adding user to chat <br>
