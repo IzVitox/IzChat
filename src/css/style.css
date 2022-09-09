@@ -144,12 +144,12 @@ main{
     align-items: center;
     align-content: center;
     width: 100%;
-    background-color: #212121;
+    background-color: #141414;
 }
 
 .chat-ul{
     list-style: none;
-    background-color: #212121;
+    background-color: #141414;
     width: 100%;
     padding: 6vh;
 }
@@ -159,14 +159,17 @@ main{
     border-radius: 10px;
     margin-top: 4vh;
     width: 90%;
-    padding: 2vh;
     margin-left: 5%;
     -webkit-transition: 0.3s;
     transition: 0.3s;
+    display: flex;
+    justify-content: space-between;
+    overflow-x: auto;
+    white-space: nowrap;
 }
 
 .chat-li:hover{
-    padding: 2.5vh;
+    padding: 0.25vh;
     margin-left: 3%;
     width: 94%;
     -webkit-transition: 0.3s;
@@ -176,7 +179,12 @@ main{
 .chat-a{
     text-decoration: none;
     color: white;
-    margin: 2vh;
+    padding: 2vh;
+    padding-left: 4vh;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: larger;
 }
 
 .chat-a:hover{
@@ -191,10 +199,14 @@ main{
 }
 
 .chats-open-arrow{
-    float: right;
     text-decoration: none;
     color: white;
-}
+    font-size: 4vh;
+    margin: 0;
+    padding: 0;
+    float: right;
+    padding-right: 4vh;
+} 
 
 .chats-open-arrow:hover{
     color: lightgray;
@@ -204,5 +216,5 @@ main{
     height: 100%;
     margin: 0;
     padding: 0;
-    background-color: #212121;
+    background-color: #141414;
 }
