@@ -7,3 +7,4 @@ TODO add message creation <br>
 TODO display messages <br>
 TODO chat settings <br>
 TODO adding user to chat <br>
+TODO prevent from accessing other chats <br>

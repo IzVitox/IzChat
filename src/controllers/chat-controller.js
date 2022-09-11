@@ -33,8 +33,23 @@ function renderCreateChat(req, res, next) {
     }
 }
 
+function chat(req, res, next) {
+
+    if(req.params.chatName){
+        dbService.getChatData(req.params.chatName, (results) => {
+            res.render('chat', {
+                chatName: results[0].name,
+            })
+        })
+    }else{
+        res.send('Error, cant find Chat')
+    }
+
+}
+
 module.exports = {
     index,
     createNewChat,
-    renderCreateChat
+    renderCreateChat,
+    chat
 }

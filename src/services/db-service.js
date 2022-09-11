@@ -62,9 +62,22 @@ function getChats(username, callback) {
 
 }
 
+function getChatData(chatName, callback) {
+    var sql = "SELECT * FROM chat WHERE name = ?"
+
+    con.query(sql, chatName, (err, results, fields) => {
+        if(err)throw err;
+
+        return callback(results)
+
+    });
+
+}
+
 module.exports = {
     con,
     getUser,
     getImage,
-    getChats
+    getChats,
+    getChatData
 };

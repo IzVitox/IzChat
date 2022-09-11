@@ -11,4 +11,6 @@ router.get('/', chatController.index)
 router.get('/createChat/', chatController.renderCreateChat)
 router.post('/createChat/', chatController.createNewChat)
 
+router.get('/chat/:chatName/', chatController.chat)
+
 module.exports = router
