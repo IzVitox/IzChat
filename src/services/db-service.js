@@ -74,10 +74,22 @@ function getChatData(chatName, callback) {
 
 }
 
+function getMessagesFromChat(chatID, callback) {
+    var sql = "SELECT * FROM message WHERE chatID=?";
+
+    con.query(sql, chatID, (err, results, fields) => {
+        if(err) throw err;
+
+        return callback(results);
+
+    });
+}
+
 module.exports = {
     con,
     getUser,
     getImage,
     getChats,
-    getChatData
+    getChatData,
+    getMessagesFromChat
 };

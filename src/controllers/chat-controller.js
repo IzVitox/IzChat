@@ -35,14 +35,21 @@ function renderCreateChat(req, res, next) {
 
 function chat(req, res, next) {
 
-    if(req.params.chatName){
-        dbService.getChatData(req.params.chatName, (results) => {
-            res.render('chat', {
-                chatName: results[0].name,
+    if(req.session.loggedIn){
+        if(req.params.chatName){
+            dbService.getChatData(req.params.chatName, (results) => {
+                dbService.getMessagesFromChat(results[0].id, (resultsChat) => {
+                    res.render('chat', {
+                        chatName: results[0].name,
+                        messages: resultsChat,
+                    })
+                })
             })
-        })
+        }else{
+            res.send('Error, cant find Chat')
+        }
     }else{
-        res.send('Error, cant find Chat')
+        res.redirect('/a/login')
     }
 
 }
