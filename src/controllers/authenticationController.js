@@ -11,6 +11,7 @@ function login(req, res, next){
 
 function logout(req, res, next) {
     req.session.loggedIn = false;
+    req.params.chatID = null;
     res.redirect('/a/login')
 }
 

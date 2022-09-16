@@ -5,6 +5,7 @@ const dbService = require("../services/db-service")
 function index(req, res, next) {
 
     if(userService.checkLoggedIn(req)){
+        req.params.chatID = null;
         dbService.getChats(req.session.username, (results) => {
             res.render("chatIndex", {
                 chats: results
@@ -33,8 +34,45 @@ function renderCreateChat(req, res, next) {
     }
 }
 
+function chat(req, res, next) {
+
+    if(req.session.loggedIn){
+        if(req.params.chatName){
+            dbService.getChatData(req.params.chatName, (results) => {
+                dbService.getMessagesFromChat(results[0].id, (resultsChat) => {
+
+                    req.session.chatID = results[0].id;
+
+                    res.render('chat', {
+                        chatName: results[0].name,
+                        messages: resultsChat,
+                    })
+                })
+            })
+        }else{
+            res.send('Error, cant find Chat')
+        }
+    }else{
+        res.redirect('/a/login')
+    }
+
+}
+
+function createMessage(req, res, next) {
+    var {message} = req.body;
+    var username = req.session.username;
+    var chatID = req.session.chatID;
+
+    dbService.createMessage(message, username, chatID);
+    
+
+    res.redirect('back')
+}
+
 module.exports = {
     index,
     createNewChat,
-    renderCreateChat
+    renderCreateChat,
+    chat,
+    createMessage
 }

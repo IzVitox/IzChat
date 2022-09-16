@@ -218,3 +218,123 @@ main{
     padding: 0;
     background-color: #141414;
 }
+
+.chat-body{
+    background-color: #212121;
+}
+
+.chat-header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #141414;
+    height: 4vh;
+}
+
+.chat-back{
+    text-decoration: none;
+    color: lightgray;
+    font-size: 2.5vh;
+    margin-left: 2vh;
+}
+
+.chat-back:hover{
+    text-decoration: none;
+    color: lightgray;   
+}
+
+.chat-name{
+    text-decoration: none;
+    color: lightgray;
+    font-size: 2.5vh;
+    margin-left: 4vh;
+    width: 90%;
+    padding-right: 170vh;
+    padding-left: 4vh;
+    padding-bottom: 0.25vh;
+    border-radius: 1vh;
+    height: fit-content;
+}
+
+.chat-name:hover{
+    background-color: #353535;
+    color: lightgray;
+}
+
+.chat-main-div{
+    height: 100%;
+    background-color: #212121;
+    color: white;
+    padding-top: 4vh;
+    padding-bottom: 5vh;
+}
+
+.chat-create-message{
+
+    position: fixed;
+    height: 5vh;
+    bottom: 0;
+    width: 100%;
+    background-color: #141414;
+    display: inline;
+    border-radius: 1vh 1vh 0 0;
+
+}
+
+.chat-message-input{
+
+    background-color: #141414;
+    border: none;
+    border-bottom: 2px grey solid;
+    margin: 1vh;
+    margin-left: 2vh;
+    padding: 0.5vh;
+    color: lightgrey;
+    width: 180vh;
+    outline: none;
+
+}
+
+.chat-message-input:focus{
+    border-bottom: 2px grey solid;
+}
+
+.chat-send-message{
+    float: right;
+    color: lightgrey;
+    background-color: #141414;
+    border: none;
+    font-size: 3vh;
+    margin-right: 2vh;
+}
+
+.chat-message-div{
+    background-color: lightgray;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 2vh;
+    padding: 1.5vh;
+    margin: 1vh;
+    
+}
+
+.message-username{
+
+    font-size: 1.5vh;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: underline;
+    color: black;
+
+}
+
+.message-username:hover{
+    color: black;
+}
+
+.message-text{
+
+    color: black;
+    font-size: 1.5vh;
+    font-family: Arial, Helvetica, sans-serif
+
+}

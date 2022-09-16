@@ -62,9 +62,44 @@ function getChats(username, callback) {
 
 }
 
+function getChatData(chatName, callback) {
+    var sql = "SELECT * FROM chat WHERE name = ?"
+
+    con.query(sql, chatName, (err, results, fields) => {
+        if(err)throw err;
+
+        return callback(results)
+
+    });
+
+}
+
+function getMessagesFromChat(chatID, callback) {
+    var sql = "SELECT * FROM message WHERE chatID=?";
+
+    con.query(sql, chatID, (err, results, fields) => {
+        if(err) throw err;
+
+        return callback(results);
+
+    });
+}
+
+function createMessage(text, username, chatID) {
+    var sql = "INSERT INTO message (text, author, chatID) VALUES (?, ?, ?)"
+
+    con.query(sql, [[text], [username], [chatID]], (err) => {
+        if(err) throw err;
+    });
+
+}
+
 module.exports = {
     con,
     getUser,
     getImage,
-    getChats
+    getChats,
+    getChatData,
+    getMessagesFromChat,
+    createMessage
 };
