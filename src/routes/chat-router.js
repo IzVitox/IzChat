@@ -10,7 +10,8 @@ router.use(express.urlencoded({extended:true}));
 router.get('/', chatController.index)
 router.get('/createChat/', chatController.renderCreateChat)
 router.post('/createChat/', chatController.createNewChat)
-
 router.get('/chat/:chatName/', chatController.chat)
+
+router.post('/sendMessage/', chatController.createMessage)
 
 module.exports = router

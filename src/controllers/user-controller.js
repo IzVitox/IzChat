@@ -9,7 +9,9 @@ const uploadService = require('../services/upload-service');
 function user(req, res, next) {
 
     if(userService.checkLoggedIn(req)){
-        
+
+        req.params.chatID = null;
+
         dbService.getUser(req.session.username, (results) => {
             mail = results[0].email;
 

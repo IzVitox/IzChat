@@ -85,11 +85,21 @@ function getMessagesFromChat(chatID, callback) {
     });
 }
 
+function createMessage(text, username, chatID) {
+    var sql = "INSERT INTO message (text, author, chatID) VALUES (?, ?, ?)"
+
+    con.query(sql, [[text], [username], [chatID]], (err) => {
+        if(err) throw err;
+    });
+
+}
+
 module.exports = {
     con,
     getUser,
     getImage,
     getChats,
     getChatData,
-    getMessagesFromChat
+    getMessagesFromChat,
+    createMessage
 };

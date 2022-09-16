@@ -219,6 +219,10 @@ main{
     background-color: #141414;
 }
 
+.chat-body{
+    background-color: #212121;
+}
+
 .chat-header{
     position: fixed;
     top: 0;
@@ -258,10 +262,11 @@ main{
 }
 
 .chat-main-div{
-    height: 100vh;
+    height: 100%;
     background-color: #212121;
     color: white;
     padding-top: 4vh;
+    padding-bottom: 5vh;
 }
 
 .chat-create-message{
@@ -301,4 +306,35 @@ main{
     border: none;
     font-size: 3vh;
     margin-right: 2vh;
+}
+
+.chat-message-div{
+    background-color: lightgray;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 2vh;
+    padding: 1.5vh;
+    margin: 1vh;
+    
+}
+
+.message-username{
+
+    font-size: 1.5vh;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: underline;
+    color: black;
+
+}
+
+.message-username:hover{
+    color: black;
+}
+
+.message-text{
+
+    color: black;
+    font-size: 1.5vh;
+    font-family: Arial, Helvetica, sans-serif
+
 }
