@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=chatName%> | Settings</title>
+</head>
+<body>
+    <form action="/c/chat/<%=chatName%>/settings/" method="post">
+        <label for="chat-user-invite">Allow user invite</label>
+        <input type="checkbox" name="userInvite" id="chat-user-invite">
+        <br>
+        <label for="chat-allow-images">Allow Images</label>
+        <input type="checkbox" name="images" id="chat-allow-images">
+        <br>
+        <label for="chat-display-usernames">Display usernames</label>
+        <input type="checkbox" name="usernames" id="chat-display-usernames">
+        <br>
+        <label for="chat-display-time">Display times</label>
+        <input type="checkbox" name="time" id="chat-display-time">
+        <br>
+        <label for="chat-message-length">Max message length</label>
+        <input type="checkbox" name="messageLength" id="chat-message-length">
+        <input type="number" name="messageLengthValue" id="message-length" placeholder="characters">
+        <br>
+        <label for="chat-delete-messages">Automatic delete messages</label>
+        <input type="checkbox" name="deleteMessages" id="chat-delete-messages">
+        <input type="number" name="deleteMessagesValue" id="delete-messages" placeholder="Days">
+    </form>
+</body>
+</html>

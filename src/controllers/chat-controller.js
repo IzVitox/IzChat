@@ -69,10 +69,22 @@ function createMessage(req, res, next) {
     res.redirect('back')
 }
 
+function chatSettings(req, res, next) {
+    res.render('chat-settings', {
+        chatName: req.params.chatName
+    })
+}
+
+function chatSettingsPost(req, res, next) {
+    
+}
+
 module.exports = {
     index,
     createNewChat,
     renderCreateChat,
     chat,
-    createMessage
+    createMessage,
+    chatSettings,
+    chatSettingsPost
 }
