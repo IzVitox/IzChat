@@ -70,9 +70,16 @@ function createMessage(req, res, next) {
 }
 
 function chatSettings(req, res, next) {
-    res.render('chat-settings', {
-        chatName: req.params.chatName
-    })
+    
+    console.log(req.params.chatName)
+
+    // if(req.session.loggedIn){
+        res.render('chat-settings', {
+            chatName: req.params.chatName
+        })
+    // }else{
+        // res.redirect('/a/login')
+    // }
 }
 
 function chatSettingsPost(req, res, next) {

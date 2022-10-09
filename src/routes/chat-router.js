@@ -15,7 +15,7 @@ router.get('/chat/:chatName/', chatController.chat)
 router.post('/sendMessage/', chatController.createMessage)
 
 router.get('/chat/:chatName/settings/', chatController.chatSettings)
-router.post('/chat/:chatName/settings/', chatController.chatSettingsPost)
+//router.post('/chat/:chatName/settings/', chatController.chatSettingsPost)
 
 
 module.exports = router

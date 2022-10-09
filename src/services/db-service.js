@@ -67,6 +67,7 @@ function getChatData(chatName, callback) {
 
     con.query(sql, chatName, (err, results, fields) => {
         if(err)throw err;
+        console.log(results[0].id)
 
         return callback(results)
 

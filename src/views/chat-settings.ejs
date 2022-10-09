@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
     <title><%=chatName%> | Settings</title>
 </head>
-<body>
-    <form action="/c/chat/<%=chatName%>/settings/" method="post">
+<body class="chat-settings-body">
+    <form action="/c/chat/<%=chatName%>/settings/" method="post" class="chat-settings-form">
         <label for="chat-user-invite">Allow user invite</label>
         <input type="checkbox" name="userInvite" id="chat-user-invite">
         <br>
@@ -26,7 +27,9 @@
         <br>
         <label for="chat-delete-messages">Automatic delete messages</label>
         <input type="checkbox" name="deleteMessages" id="chat-delete-messages">
-        <input type="number" name="deleteMessagesValue" id="delete-messages" placeholder="Days">
+        <input type="number" name="deleteMessagesValue" id="delete-messages" placeholder="Days"><br>
+
+        <input type="submit" value="Save">
     </form>
 </body>
 </html>
